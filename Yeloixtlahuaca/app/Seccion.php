@@ -12,6 +12,6 @@ class Seccion extends Model
 
     public function actividades()
     {
-    	return $this->hasMany(Actividad::class);
+    	return $this->hasMany(Actividad::class, 'seccion');
     }
 }

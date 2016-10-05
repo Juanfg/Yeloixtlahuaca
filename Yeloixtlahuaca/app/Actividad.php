@@ -17,6 +17,6 @@ class Actividad extends Model
 
     public function seccion()
     {
-    	return $this->belongsTo(Seccion::class, 'categoria');
+    	return $this->belongsTo(Seccion::class, 'seccion');
     }
 }
