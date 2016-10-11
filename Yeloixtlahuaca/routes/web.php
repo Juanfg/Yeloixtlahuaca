@@ -26,3 +26,6 @@ Route::resource('fotosactividades', 'FotoActividadController');
 Route::resource('integrantes', 'IntegranteController');
 
 Route::resource('secciones', 'SeccionController');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index');
