@@ -14,3 +14,15 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::resource('actividades', 'ActividadController');
+
+Route::resource('avisos', 'AvisoController');
+
+Route::resource('donantes', 'DonanteController');
+
+Route::resource('fotosactividades', 'FotoActividadController');
+
+Route::resource('integrantes', 'IntegranteController');
+
+Route::resource('secciones', 'SeccionController');
