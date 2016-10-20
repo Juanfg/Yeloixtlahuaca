@@ -15,7 +15,7 @@ class ActividadController extends Controller
      */
     public function index()
     {
-        //
+        return view('actividades.index', ['actividades'=>Actividad::all()]);
     }
 
     /**

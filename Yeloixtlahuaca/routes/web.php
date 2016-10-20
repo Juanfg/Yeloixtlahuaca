@@ -11,8 +11,14 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+Route::get('/', 'HomeController@index')->name('/');
+
+Route::get('/home', function() {
+    return redirect()->route('/');
 });
 
 Route::resource('actividades', 'ActividadController');
@@ -27,5 +33,3 @@ Route::resource('integrantes', 'IntegranteController');
 
 Route::resource('secciones', 'SeccionController');
 Auth::routes();
-
-Route::get('/home', 'HomeController@index');
