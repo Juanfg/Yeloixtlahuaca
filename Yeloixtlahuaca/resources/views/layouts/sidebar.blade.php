@@ -33,9 +33,7 @@
         <div id="sidebar-wrapper">
             <ul class="sidebar-nav">
                 <li class="sidebar-brand">
-                    <a href="#">
-                        Página de Administradores
-                    </a>
+                <title>@yield('title')</title>
                 </li>
                 <li>
                     <a href="#">Avisos</a>
@@ -59,6 +57,16 @@
                     <a href="#">Logout</a>
                 </li>
             </ul>
+        </div>
+
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        @yield('content')
+                    </div>
+                </div>
+            </div>
         </div>
 
     </div>
