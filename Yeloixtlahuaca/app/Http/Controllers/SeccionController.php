@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use App\Seccion;
 
 class SeccionController extends Controller
 {
@@ -15,7 +16,7 @@ class SeccionController extends Controller
      */
     public function index()
     {
-        //
+        return view('secciones.index', ['secciones'=>Seccion::all()]);
     }
 
     /**
@@ -25,7 +26,7 @@ class SeccionController extends Controller
      */
     public function create()
     {
-        //
+        return view('secciones.create');
     }
 
     /**
@@ -36,7 +37,26 @@ class SeccionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $message = "";
+        $this->validate($request,[
+            "titulo" => "required|string",
+            "descripcion" => "required|string",
+        ]);
+
+        $alreadyExists = Seccion::where("titulo", $request->titulo)->count();
+
+        if($alreadyExists == 0)
+        {
+            Seccion::create(["titulo"=>$request->titulo, "descripcion"=>$request->descripcion]);
+        }
+        else
+        {
+            $request->session()->flash('error', "Esa sección ya se había creado anteriormente");
+            return back()->withInput();
+        }
+
+        $request->session()->flash("message", "Agregado con exito");
+        return redirect()->route("secciones.create");
     }
 
     /**
@@ -47,7 +67,7 @@ class SeccionController extends Controller
      */
     public function show($id)
     {
-        //
+        return view('secciones.show', ['seccion' => Seccion::where('id', $id)->firstOrFail()]);
     }
 
     /**
