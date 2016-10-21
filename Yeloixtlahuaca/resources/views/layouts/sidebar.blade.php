@@ -33,7 +33,7 @@
         <div id="sidebar-wrapper">
             <ul class="sidebar-nav">
                 <li class="sidebar-brand">
-                <title>@yield('title')</title>
+                    <a>@yield('title')</a>
                 </li>
                 <li>
                     <a href="#">Avisos</a>
