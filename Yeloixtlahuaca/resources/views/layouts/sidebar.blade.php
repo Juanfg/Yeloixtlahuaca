@@ -13,7 +13,8 @@
 
     <!-- Custom CSS -->
     <link href="{{URL::asset('assetsSidebar/css/simple-sidebar.css')}}" rel="stylesheet">
-
+    <link rel="stylesheet" href="{{ URL::asset('assetsSidebar/font-awesome/css/font-awesome.css') }}">
+    <link rel="stylesheet" href="{{ URL::asset('assetsSidebar/css/zabuto_calendar.css') }}">
     <link href="{{URL::asset('assetsSidebar/css/bootstrap.min.css')}}" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
