@@ -1,6 +1,6 @@
 @extends('layouts.sidebar')
 
-@section('title', 'Actividades')
+@section('title', 'Integrantes')
 
 @section('content')
 
@@ -26,11 +26,11 @@
 @endif
 
 <div class="col-sm-12"> 
-    <h2> Crear actividad </h2>
-    <h3> Aqu&iacute; podr&aacute;s crear una actividad. </h3>
+    <h2> Agregar integrante </h2>
+    <h3> Aqu&iacute; podr&aacute;s agregar integrantes. </h3>
     <br>
-    {!! Form::model(new App\Actividad, ['route' =>'actividades.store', 'files' => 'true' ]) !!}
-    @include('actividades.form', ['submit_text' => 'Crear'])
+    {!! Form::model(new App\Integrante, ['route' =>'integrantes.store', 'files' => 'true' ]) !!}
+    @include('integrantes.form', ['submit_text' => 'Crear'])
 </div>
 
 @endsection
