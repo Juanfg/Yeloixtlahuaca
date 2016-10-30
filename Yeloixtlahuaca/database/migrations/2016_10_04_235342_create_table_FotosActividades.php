@@ -14,6 +14,7 @@ class CreateTableFotosActividades extends Migration
     public function up()
     {
         Schema::create('FotosActividades', function (Blueprint $table) {
+            $table->increments('id');
             $table->string('ruta');
             $table->integer('actividad')->unsigned();
             $table->foreign('actividad')->references('id')->on('Actividades')->onDelete('cascade')->onUpdate('cascade');

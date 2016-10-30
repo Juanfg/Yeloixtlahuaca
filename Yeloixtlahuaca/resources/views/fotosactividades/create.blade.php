@@ -1,6 +1,6 @@
 @extends('layouts.sidebar')
 
-@section('title', 'Actividades')
+@section('title', 'Fotos de Actividades')
 
 @section('content')
 
@@ -26,11 +26,11 @@
 @endif
 
 <div class="col-sm-12"> 
-    <h2> Crear actividad </h2>
-    <h3> Aqu&iacute; podr&aacute;s crear una actividad. </h3>
+    <h2> Agregar para Actividades </h2>
+    <h3> Aqu&iacute; podr&aacute;s agregar las fotos para las actividades. </h3>
     <br>
-    {!! Form::model(new App\Actividad, ['route' =>'actividades.store', 'files' => 'true' ]) !!}
-    @include('actividades.form', ['submit_text' => 'Crear'])
+    {!! Form::model(new App\FotoActividad, ['route' =>'fotosactividades.store', 'files' => 'true' ]) !!}
+    @include('fotosactividades.form', ['submit_text' => 'Crear'])
 </div>
 
 @endsection
