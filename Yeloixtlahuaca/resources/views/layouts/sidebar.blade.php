@@ -55,7 +55,7 @@
                     <a href="{{ route('fotosactividades.index') }}">Fotos Actividades</a>
                 </li>
                 <li>
-                    <a href="#">Logout</a>
+                    <a class="logout" href="{{route('logout')}}">Logout</a>
                 </li>
             </ul>
         </div>

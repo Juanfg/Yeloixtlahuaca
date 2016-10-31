@@ -33,3 +33,8 @@ Route::resource('integrantes', 'IntegranteController');
 
 Route::resource('secciones', 'SeccionController');
 Auth::routes();
+
+Route::get('logout', function(){
+		Auth::logout();
+		return redirect()->route('/');
+})->name('logout');
