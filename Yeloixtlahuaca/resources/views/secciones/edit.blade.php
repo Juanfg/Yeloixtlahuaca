@@ -1,6 +1,6 @@
 @extends('layouts.sidebar')
 
-@section('title', 'Avisos')
+@section('title', 'Secciones')
 
 @section('content')
 
@@ -11,16 +11,15 @@
     </div>
 @endif
 
-<h2> Editar aviso </h2>
-<p> Aqu&iacute; podr&aacute;s editar el aviso. <br> </p>
+<h2> Editar seccion </h2>
+<p> Aqu&iacute; podr&aacute;s editar una secci&oacute;n. <br> </p>
 
 <div class="col-sm-12"> 
-{!! Form::model($aviso,
+{!! Form::model($seccion,
     [
     'method' => 'PUT',
-    'route' =>['avisos.update', $aviso->id], 
-    'files' => 'true' 
+    'route' =>['secciones.update', $seccion->id],  
     ]) !!}
-@include('avisos.form', ['submit_text' => 'Editar'])
+@include('secciones.form', ['submit_text' => 'Editar'])
 </div>
 @endsection

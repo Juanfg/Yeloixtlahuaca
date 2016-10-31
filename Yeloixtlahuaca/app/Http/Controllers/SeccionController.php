@@ -78,7 +78,8 @@ class SeccionController extends Controller
      */
     public function edit($id)
     {
-        //
+        $seccion = Seccion::where('id', $id)->firstOrFail();
+        return view('secciones.edit', ['seccion' => $seccion]);
     }
 
     /**
@@ -90,7 +91,24 @@ class SeccionController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $seccion = Seccion::where('id', $id)->firstOrFail();
+
+        $this->validate($request, ["titulo" => "required|string", "descripcion" => "required|string"]);
+        
+        $updating = $request->all();
+
+        $alreadyExists = Seccion::where('titulo', $request->titulo)->where('id', '<>', $id)->count();
+
+        if($alreadyExists == 0)
+            $seccion->update($updating);
+        else
+        {
+            $request->session()->flash('error', 'Esta seccion ya ha sido creada');
+            return back()->withInput();
+        }
+
+        $request->session()->flash("message", "Actualizado con exito");
+        return redirect()->route("secciones.index");
     }
 
     /**
@@ -99,8 +117,20 @@ class SeccionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
-        //
+        $seccion = Seccion::where('id', $id)->firstOrFail();
+        $deleted = $seccion->delete();
+
+        if($deleted)
+        {
+            $request->session()->flash('deleted', "Eliminado con &eacute;xito");
+        }
+        else
+        {
+            $request->session()->flash('failDeleted', "Algo sali&oacute; mal. Por favor contacta a desarrollo.");
+        }
+
+        return redirect()->route("secciones.index");
     }
 }

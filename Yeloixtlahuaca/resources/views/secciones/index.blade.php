@@ -4,6 +4,25 @@
 
 @section('content')
 
+@if (session('deleted'))
+    <div class="alert alert-warning">
+        <a class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        {{ session('deleted') }}
+    </div>
+@endif
+@if (session('failDeleted'))
+    <div class="alert alert-danger">
+        <a class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        {{ session('failDeleted') }}
+    </div>
+@endif
+@if (session('message'))
+    <div class = "alert alert-success" class = "close">
+        <a class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        {{ session('message') }}
+    </div>
+@endif
+
 <div class="col-lg-12">
     <h2>Secciones</h2>
     <section id="no-more-tables">
@@ -20,7 +39,7 @@
                      @foreach($secciones as $seccion)
                         <tr>
                             <td data-title="ID">{{$seccion->id}}</td>
-                            <td data-title="Titulo">{{$seccion->titulo}}</td>
+                            <td data-title="Titulo"><a href="{{ route('secciones.show', [ $seccion->id]) }}">{{$seccion->titulo}}</td>
                             <td data-title="Descripcion">{{$seccion->descripcion}}</td>
                             <td data-title="Acciones">
                                 <div class="col-xs-2 col-xs-offset-3">

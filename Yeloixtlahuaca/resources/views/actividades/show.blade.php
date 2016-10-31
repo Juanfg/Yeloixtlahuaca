@@ -5,6 +5,8 @@
 @section('content')
 
 <h1 class="text-center">{{$actividad->titulo}}</h1>
+<p class="text-left">{{$actividad->descripcion}}</p>
+<p class="text-left"><strong>Secci&oacute;n:</strong> {{ App\Seccion::find($actividad->seccion)->titulo}}</p>
 <br>
 <div class="col-xs-12">
 	

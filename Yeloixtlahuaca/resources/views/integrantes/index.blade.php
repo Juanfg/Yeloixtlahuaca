@@ -4,6 +4,25 @@
 
 @section('content')
 
+@if (session('deleted'))
+    <div class="alert alert-warning">
+        <a class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        {{ session('deleted') }}
+    </div>
+@endif
+@if (session('failDeleted'))
+    <div class="alert alert-danger">
+        <a class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        {{ session('failDeleted') }}
+    </div>
+@endif
+@if (session('message'))
+    <div class = "alert alert-success" class = "close">
+        <a class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        {{ session('message') }}
+    </div>
+@endif
+
 <div class="col-lg-12">
 	<h2>Integrantes</h2>
 	<p> En esta secci&oacute;n podr&aacute;s agregar, modificar y eliminar a los integrantes de la fundaci&oacute;n</p>

@@ -4,12 +4,6 @@
 
 @section('content')
 
-@if (session('message'))
-    <div class="alert alert-success">
-        {{ session('message') }}
-    </div>
-@endif
-
 <h1 class="text-center">{{$aviso->titulo}}</h1>
 <p class="text-rigth">{{$aviso->descripcion}}</p>
 <div class="col-xs-12">

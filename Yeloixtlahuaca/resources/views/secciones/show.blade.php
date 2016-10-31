@@ -6,12 +6,13 @@
 
 @if (session('message'))
     <div class="alert alert-success">
+		<a class="close" data-dismiss="alert" aria-label="close">&times;</a>
         {{ session('message') }}
     </div>
 @endif
 
 <h1 class="text-center">{{$seccion->titulo}}</h1>
-<p class="text-center"><strong>Descripci&oacute;n:</strong>{{$seccion->descripcion}}</p>
+<p class="text-left">{{$seccion->descripcion}}</p>
 <br>
 <div class="col-xs-12">
 	

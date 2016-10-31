@@ -4,6 +4,25 @@
 
 @section('content')
 
+@if (session('deleted'))
+    <div class="alert alert-warning">
+        <a class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        {{ session('deleted') }}
+    </div>
+@endif
+@if (session('failDeleted'))
+    <div class="alert alert-danger">
+        <a class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        {{ session('failDeleted') }}
+    </div>
+@endif
+@if (session('message'))
+    <div class = "alert alert-success" class = "close">
+        <a class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        {{ session('message') }}
+    </div>
+@endif
+
 <div class="col-lg-12">
 	<h2>Actividades</h2>
 	<p> En esta secci&oacute;n podr&aacute;s agregar, modificar la informaci&oacute;n, y eliminar a las actividades de la base de datos</p>
@@ -24,7 +43,7 @@
 					@foreach ($actividades as $actividad)
 					<tr>
 						<td data-title="ID"> {{ $actividad->id }} </td>
-						<td data-title="Titulo"> {{ $actividad->titulo }} </td>
+						<td data-title="Titulo"> <a href="{{ route('actividades.show', [ $actividad->id]) }}">{{ $actividad->titulo }} </td>
 						<td data-title="Descripcion"> {{ $actividad->descripcion }} </td>
 						<td data-title="Seccion"> {{ App\Seccion::find($actividad->seccion)->titulo}} </td>
 						<td data-title="Accion">

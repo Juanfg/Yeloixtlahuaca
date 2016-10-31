@@ -37,22 +37,22 @@
                     <a>@yield('title')</a>
                 </li>
                 <li>
-                    <a href="#">Avisos</a>
+                    <a href="{{ route('avisos.index') }}">Avisos</a>
                 </li>
                 <li>
-                    <a href="#">Integrantes</a>
+                    <a href="{{ route('integrantes.index') }}">Integrantes</a>
                 </li>
                 <li>
-                    <a href="#">Donantes</a>
+                    <a href="{{ route('donantes.index') }}">Donantes</a>
                 </li>
                 <li>
-                    <a href="#">Secciones</a>
+                    <a href="{{ route('secciones.index') }}">Secciones</a>
                 </li>
                 <li>
-                    <a href="#">Actividades</a>
+                    <a href="{{ route('actividades.index') }}">Actividades</a>
                 </li>
                 <li>
-                    <a href="#">Fotos Actividades</a>
+                    <a href="{{ route('fotosactividades.index') }}">Fotos Actividades</a>
                 </li>
                 <li>
                     <a href="#">Logout</a>

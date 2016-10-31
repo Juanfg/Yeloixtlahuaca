@@ -4,6 +4,13 @@
 
 @section('content')
 
+@if (session('error'))
+    <div class="alert alert-danger">
+        <a class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        {{ session('error') }}
+    </div>
+@endif
+
 <h2> Editar actividad </h2>
 <p> Aqu&iacute; podr&aacute;s editar la actividad. <br> </p>
 
