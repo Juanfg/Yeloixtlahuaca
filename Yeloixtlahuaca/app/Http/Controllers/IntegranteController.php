@@ -41,10 +41,15 @@ class IntegranteController extends Controller
         $this->validate($request,[
             "nombre" => "required|string",
             "descripcion" => "required|string",
-            "image" => "required|image",
+            "image" => "image",
             ]);
 
-        $path = $request->image->store('public');
+        if ($request->hasFile('image')){
+            $path = $request->image->store('public');
+        }else{
+            $path = "public/noImgUser.png";
+        }
+
 
         $alreadyExists = Integrante::where('nombre',$request->nombre)->count();
 
@@ -103,7 +108,7 @@ class IntegranteController extends Controller
                 "nombre" => "required|string",
                 "descripcion" => "required|string",
                 "image" => "image",
-            ]);
+                ]);
 
             $updating = $request->all();
 
