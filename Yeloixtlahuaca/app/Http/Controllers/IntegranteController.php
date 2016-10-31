@@ -44,9 +44,9 @@ class IntegranteController extends Controller
             "image" => "image",
             ]);
 
-        if ($request->hasFile('image')){
+        if ($request->hasFile("image")){
             $path = $request->image->store('public');
-        }else{
+        }else{ 
             $path = "public/noImgUser.png";
         }
 
