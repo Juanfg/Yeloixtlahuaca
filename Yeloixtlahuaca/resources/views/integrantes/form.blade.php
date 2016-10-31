@@ -10,7 +10,7 @@
 	</div>
 	<div class="form-group">
 		{!! Form::label('foto', 'Selecciona una foto para su integrante:'); !!}
-		{!! Form::file('logo') !!}
+		{!! Form::file('image') !!}
 	</div>
 	<div class="form-group">
 		{!! Form::submit($submit_text, ['class'=>'btn primary']); !!}

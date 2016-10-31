@@ -31,7 +31,7 @@
     <h2> Agregar integrante </h2>
     <h3> Aqu&iacute; podr&aacute;s agregar integrantes. </h3>
     <br>
-    {!! Form::model(new App\Integrante, ['route' =>'integrantes.store', 'files' => 'true' ]) !!}
+    {!! Form::model(new App\Integrante, ['route' =>'integrantes.store', 'files' => true ]) !!}
     @include('integrantes.form', ['submit_text' => 'Crear'])
 </div>
 
