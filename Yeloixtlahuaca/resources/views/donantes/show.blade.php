@@ -7,7 +7,7 @@
 <h1 class="text-center">{{$donante->nombre}}</h1>
 <p class="text-rigth">{{$donante->descripcion}}</p>
 <div class="col-xs-12">
-    <img src="{{Storage::url($donante->foto)}}" class="img-responsive col-xs-12 col-sm-4 col-sm-offset-4 img-thumbnail">
+    <img src="{{Storage::url($donante->logo)}}" class="img-responsive col-xs-12 col-sm-4 col-sm-offset-4 img-thumbnail">
 </div>
 
 <div class="col-xs-12">
