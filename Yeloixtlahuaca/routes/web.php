@@ -35,6 +35,7 @@ Route::group(['middleware'=>'auth'], function() {
 	Route::resource('integrantes', 'IntegranteController');
 
 	Route::resource('secciones', 'SeccionController');
+	
 	Auth::routes();
 
 	Route::get('logout', function(){
@@ -46,6 +47,4 @@ Route::group(['middleware'=>'auth'], function() {
 
 Auth::routes();
 
-Route::get('/', function() {
-	return view('yeloixtlahuaca.index');
-});
+Route::resource('/', 'YeloController');

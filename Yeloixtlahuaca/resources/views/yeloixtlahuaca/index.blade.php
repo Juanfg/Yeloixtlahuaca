@@ -1,14 +1,84 @@
 @extends('layouts.header')
-<!-- Begin text carousel intro section -->
-<section id="text-carousel-intro-section" class="parallax" data-stellar-background-ratio="0.5" style="background-image: url($urlImage);">
 
+@section('img')
+<!-- Begin text carousel intro section -->
+<section id="text-carousel-intro-section" class="parallax" data-stellar-background-ratio="0.5" style="background-image: url({{Storage::url($img)}});">
 </section>
 <!-- End text carousel intro section -->
 
+@endsection
+
+@section('about')
 <!-- Begin about section -->
-@extends('yeloixtlahuaca.aboutSection')
+<!-- Begin page header-->
+<section id="about-section" class="page bg-style1">
+    <div class="page-header-wrapper">
+        <div class="container">
+            <div class="page-header text-center wow fadeInUp" data-wow-delay="0.3s">
+                <h2>Acerca de</h2>
+                <div class="devider"></div>
+                <p class="subtitle">Nuestra Organización</p>
+            </div>
+        </div>
+    </div>
+    <!-- End page header-->
+
+    <!-- Begin rotate box-1 -->
+    <div class="rotate-box-1-wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-sm-6">
+                    <a href="#" class="rotate-box-1 square-icon wow zoomIn" data-wow-delay="0">
+                        <span class="rotate-box-icon"><i class="fa fa-users"></i></span>
+                        <div class="rotate-box-info">
+                            <h4>¿Quiénes somos?</h4>
+                            <p>Lorem ipsum dolor sit amet set, consectetur utes anet adipisicing elit, sed do eiusmod tempor incidist.</p>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col-md-3 col-sm-6">
+                    <a href="#" class="rotate-box-1 square-icon wow zoomIn" data-wow-delay="0.2s">
+                        <span class="rotate-box-icon"><i class="fa fa-diamond"></i></span>
+                        <div class="rotate-box-info">
+                            <h4>¿Qué hacemos?</h4>
+                            <p>Lorem ipsum dolor sit amet set, consectetur utes anet adipisicing elit, sed do eiusmod tempor incidist.</p>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col-md-3 col-sm-6">
+                    <a href="#" class="rotate-box-1 square-icon wow zoomIn" data-wow-delay="0.4s">
+                        <span class="rotate-box-icon"><i class="fa fa-heart"></i></span>
+                        <div class="rotate-box-info">
+                            <h4>¿Por qué lo hacemos?</h4>
+                            <p>Lorem ipsum dolor sit amet set, consectetur utes anet adipisicing elit, sed do eiusmod tempor incidist.</p>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col-md-3 col-sm-6">
+                    <a href="#" class="rotate-box-1 square-icon wow zoomIn" data-wow-delay="0.6s">
+                        <span class="rotate-box-icon"><i class="fa fa-clock-o"></i></span>
+                        <div class="rotate-box-info">
+                            <h4>¿Desde cuando?</h4>
+                            <p>Lorem ipsum dolor sit amet set, consectetur utes anet adipisicing elit, sed do eiusmod tempor incidist.</p>
+                        </div>
+                    </a>
+                </div>
+
+            </div> <!-- /.row -->
+        </div> <!-- /.container -->
+    </div>
+    <!-- End rotate box-1 -->
+
+    <div class="extra-space-l"></div>
+
+</section>
+@endsection
 <!-- End about section -->
 
+@section('mvo')
 <!-- Begin Services -->
 <section id="mission-section" class="page text-center">
     <!-- Begin page header-->
@@ -22,7 +92,7 @@
         </div>
     </div>
     <!-- End page header-->
-    
+
     <!-- Begin roatet box-2 -->
     <div class="rotate-box-2-wrapper">
         <div class="container">
@@ -36,7 +106,7 @@
                         </div>
                     </a>
                 </div>
-                
+
                 <div class="col-md-4 col-sm-8">
                     <a href="#" class="rotate-box-2 square-icon text-center wow zoomIn" data-wow-delay="0.2s">
                         <span class="rotate-box-icon"><i class="fa fa-eye"></i></span>
@@ -46,7 +116,7 @@
                         </div>
                     </a>
                 </div>
-                
+
                 <div class="col-md-4 col-sm-8">
                     <a href="#" class="rotate-box-2 square-icon text-center wow zoomIn" data-wow-delay="0.4s">
                         <span class="rotate-box-icon"><i class="fa fa-circle-o"></i></span>
@@ -56,22 +126,24 @@
                         </div>
                     </a>
                 </div>
-                
+
             </div> <!-- /.row -->
         </div> <!-- /.container -->                   
     </div>
     <!-- End rotate-box-2 -->
 </section>
-<!-- End Services -->  
+<!-- End Services --> 
+@endsection
 
+@section('other')
 <!-- Begin Portfolio -->
 <section id="portfolio-section" class="page bg-style1">
-   <div class="container">
+ <div class="container">
     <div class="row">
         <div class="col-md-12">
             <div class="portfolio">
-               Begin page header
-               <div class="page-header-wrapper">
+             Begin page header
+             <div class="page-header-wrapper">
                 <div class="container">
                     <div class="page-header text-center wow fadeInDown" data-wow-delay="0.4s">
                         <h2>Nuestro Trabajo</h2>
@@ -178,7 +250,7 @@
                     </div>
                 </div>
             </div>
-            
+
         </div>
     </div>
 </div>
@@ -247,7 +319,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="col-md-2">
                     <div class="team-container wow bounceIn" data-wow-delay="0.5s">
                         <div class="team-item">
@@ -368,89 +440,22 @@
 
     <!-- Begin prices -->
     <div class="prices">
-       <div class="container">
-          <div class="row">
-             
-             <div class="price-box col-sm-6 col-md-3 wow flipInY" data-wow-delay="0.3s">
-                <div class="panel panel-default">
-                   <div class="panel-heading text-center">
-                      <i class="fa fa-plug fa-2x"></i>
-                      <h3>Basic</h3>
-                  </div>
-                  <div class="panel-body text-center">
-                      <p class="lead"><strong>$49</strong></p>
-                  </div>
-                  <ul class="list-group text-center">
-                      <li class="list-group-item">Personal Use</li>
-                      <li class="list-group-item">3 projects</li>
-                      <li class="list-group-item">1 GB Disk</li>
-                      <li class="list-group-item">Custom Domain</li>
-                      <li class="list-group-item">24/7 Support</li>
-                  </ul>
-                  <div class="panel-footer text-center">
-                      <a class="btn btn-default" href="#">Order Now!</a>
-                  </div>
-              </div>										
-          </div>
+     <div class="container">
+      <div class="row">
 
-          <div class="price-box col-sm-6 col-md-3 wow flipInY" data-wow-delay="0.5s">
-            <div class="panel panel-default">
-               <div class="panel-heading text-center">
-                  <i class="fa fa-cog fa-2x"></i>
-                  <h3>Advanced</h3>
-              </div>
-              <div class="panel-body text-center">
-                  <p class="lead"><strong>$99</strong></p>
-              </div>
-              <ul class="list-group text-center">
-                  <li class="list-group-item">Personal Use</li>
-                  <li class="list-group-item">5 projects</li>
-                  <li class="list-group-item">5 GB Disk</li>
-                  <li class="list-group-item">Custom Domain</li>
-                  <li class="list-group-item">24/7 Support</li>
-              </ul>
-              <div class="panel-footer text-center">
-                  <a class="btn btn-default" href="#">Order Now!</a>
-              </div>
-          </div>										
-      </div>
-      
-      <div class="price-box col-sm-6 price-box-featured col-md-3 wow flipInY" data-wow-delay="0.7s">
+       <div class="price-box col-sm-6 col-md-3 wow flipInY" data-wow-delay="0.3s">
         <div class="panel panel-default">
-           <div class="panel-heading text-center">
-              <i class="fa fa-star fa-2x"></i>
-              <h3>Professional</h3>
-          </div>
-          <div class="panel-body text-center">
-              <p class="lead"><strong>$149</strong></p>
-          </div>
-          <ul class="list-group text-center">
-              <li class="list-group-item">Personal Use</li>
-              <li class="list-group-item">20 Projects</li>
-              <li class="list-group-item">20 GB Disk</li>
-              <li class="list-group-item">Custom Domain</li>
-              <li class="list-group-item">24/7 Support</li>
-          </ul>
-          <div class="panel-footer text-center">
-              <a class="btn btn-default" href="#">Order Now!</a>
-          </div>
-          <div class="price-box-ribbon"><strong>Popular</strong></div>
-      </div>										
-  </div>
-  
-  <div class="price-box col-sm-6 col-md-3 wow flipInY" data-wow-delay="0.9s">
-    <div class="panel panel-default">
-       <div class="panel-heading text-center">
-          <i class="fa fa-plus fa-2x"></i>
-          <h3>Ultimate</h3>
+         <div class="panel-heading text-center">
+          <i class="fa fa-plug fa-2x"></i>
+          <h3>Basic</h3>
       </div>
       <div class="panel-body text-center">
-          <p class="lead"><strong>$199</strong></p>
+          <p class="lead"><strong>$49</strong></p>
       </div>
       <ul class="list-group text-center">
-          <li class="list-group-item">Multi Use</li>
-          <li class="list-group-item">Unlimited Projects</li>
-          <li class="list-group-item">99 GB Disk</li>
+          <li class="list-group-item">Personal Use</li>
+          <li class="list-group-item">3 projects</li>
+          <li class="list-group-item">1 GB Disk</li>
           <li class="list-group-item">Custom Domain</li>
           <li class="list-group-item">24/7 Support</li>
       </ul>
@@ -458,6 +463,73 @@
           <a class="btn btn-default" href="#">Order Now!</a>
       </div>
   </div>										
+</div>
+
+<div class="price-box col-sm-6 col-md-3 wow flipInY" data-wow-delay="0.5s">
+    <div class="panel panel-default">
+     <div class="panel-heading text-center">
+      <i class="fa fa-cog fa-2x"></i>
+      <h3>Advanced</h3>
+  </div>
+  <div class="panel-body text-center">
+      <p class="lead"><strong>$99</strong></p>
+  </div>
+  <ul class="list-group text-center">
+      <li class="list-group-item">Personal Use</li>
+      <li class="list-group-item">5 projects</li>
+      <li class="list-group-item">5 GB Disk</li>
+      <li class="list-group-item">Custom Domain</li>
+      <li class="list-group-item">24/7 Support</li>
+  </ul>
+  <div class="panel-footer text-center">
+      <a class="btn btn-default" href="#">Order Now!</a>
+  </div>
+</div>										
+</div>
+
+<div class="price-box col-sm-6 price-box-featured col-md-3 wow flipInY" data-wow-delay="0.7s">
+    <div class="panel panel-default">
+     <div class="panel-heading text-center">
+      <i class="fa fa-star fa-2x"></i>
+      <h3>Professional</h3>
+  </div>
+  <div class="panel-body text-center">
+      <p class="lead"><strong>$149</strong></p>
+  </div>
+  <ul class="list-group text-center">
+      <li class="list-group-item">Personal Use</li>
+      <li class="list-group-item">20 Projects</li>
+      <li class="list-group-item">20 GB Disk</li>
+      <li class="list-group-item">Custom Domain</li>
+      <li class="list-group-item">24/7 Support</li>
+  </ul>
+  <div class="panel-footer text-center">
+      <a class="btn btn-default" href="#">Order Now!</a>
+  </div>
+  <div class="price-box-ribbon"><strong>Popular</strong></div>
+</div>										
+</div>
+
+<div class="price-box col-sm-6 col-md-3 wow flipInY" data-wow-delay="0.9s">
+    <div class="panel panel-default">
+     <div class="panel-heading text-center">
+      <i class="fa fa-plus fa-2x"></i>
+      <h3>Ultimate</h3>
+  </div>
+  <div class="panel-body text-center">
+      <p class="lead"><strong>$199</strong></p>
+  </div>
+  <ul class="list-group text-center">
+      <li class="list-group-item">Multi Use</li>
+      <li class="list-group-item">Unlimited Projects</li>
+      <li class="list-group-item">99 GB Disk</li>
+      <li class="list-group-item">Custom Domain</li>
+      <li class="list-group-item">24/7 Support</li>
+  </ul>
+  <div class="panel-footer text-center">
+      <a class="btn btn-default" href="#">Order Now!</a>
+  </div>
+</div>										
 </div>
 
 </div> <!-- /.row -->
@@ -473,9 +545,9 @@
 
 <!-- Begin social section -->
 <section id="social-section">
-    
-   <!-- Begin page header-->
-   <div class="page-header-wrapper">
+
+ <!-- Begin page header-->
+ <div class="page-header-wrapper">
     <div class="container">
         <div class="page-header text-center wow fadeInDown" data-wow-delay="0.4s">
             <h2>Unete a nosotros</h2>
@@ -487,11 +559,11 @@
 <!-- End page header-->
 
 <div class="container">
-   <ul class="social-list">
-      <li> <a href="https://www.facebook.com/CAY0546" class="rotate-box-1 square-icon text-center wow zoomIn" data-wow-delay="0.3s"><span class="rotate-box-icon"><i class="fa fa-facebook"></i></span></a></li>
-      <li> <a href="#" class="rotate-box-1 square-icon text-center wow zoomIn" data-wow-delay="0.4s"><span class="rotate-box-icon"><i class="fa fa-twitter"></i></span></a></li>
-      <li> <a href="#" class="rotate-box-1 square-icon text-center wow zoomIn" data-wow-delay="0.5s"><span class="rotate-box-icon"><i class="fa fa-google-plus"></i></span></a></li>                  
-  </ul>
+ <ul class="social-list">
+  <li> <a href="https://www.facebook.com/CAY0546" class="rotate-box-1 square-icon text-center wow zoomIn" data-wow-delay="0.3s"><span class="rotate-box-icon"><i class="fa fa-facebook"></i></span></a></li>
+  <li> <a href="#" class="rotate-box-1 square-icon text-center wow zoomIn" data-wow-delay="0.4s"><span class="rotate-box-icon"><i class="fa fa-twitter"></i></span></a></li>
+  <li> <a href="#" class="rotate-box-1 square-icon text-center wow zoomIn" data-wow-delay="0.5s"><span class="rotate-box-icon"><i class="fa fa-google-plus"></i></span></a></li>                  
+</ul>
 </div>
 
 </section>
@@ -500,7 +572,7 @@
 <!-- Begin contact section -->
 <section id="contact-section" class="page text-white parallax" data-stellar-background-ratio="0.5" style="background-image: url(img/map-bg.jpg);">
     <div class="cover"></div>
-    
+
     <!-- Begin page header-->
     <div class="page-header-wrapper">
         <div class="container">
@@ -512,25 +584,25 @@
         </div>
     </div>
     <!-- End page header-->
-    
+
     <div class="contact wow bounceInRight" data-wow-delay="0.4s">
         <div class="container">
-           <div class="row">
-            
+         <div class="row">
+
             <div class="col-sm-6">
                 <div class="contact-info">
                     <h4>Visitanos</h4>
                     <ul class="contact-address">
-                     <li><i class="fa fa-map-marker fa-lg"></i>&nbsp; Calle Cuauhtemoc S/N Secc. 1a. ,<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; San Pedro Yeloixtlahuaca Puebla.<br><!--<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; New York, USA, 33148</li>-->
-                     <li><i class="fa fa-phone"></i>&nbsp; 01-275-43-8-41-32</li>
-                 </ul>
-             </div>
-         </div>
-         
-         <div class="col-sm-6">
+                       <li><i class="fa fa-map-marker fa-lg"></i>&nbsp; Calle Cuauhtemoc S/N Secc. 1a. ,<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; San Pedro Yeloixtlahuaca Puebla.<br><!--<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; New York, USA, 33148</li>-->
+                       <li><i class="fa fa-phone"></i>&nbsp; 01-275-43-8-41-32</li>
+                   </ul>
+               </div>
+           </div>
+
+           <div class="col-sm-6">
             <div class="contact-form">
-               <h4>Escribenos</h4>
-               <form role="form">
+             <h4>Escribenos</h4>
+             <form role="form">
                 <div class="form-group">
                     <input type="text" class="form-control input-lg" placeholder="Tu Nombre" required>
                 </div>
@@ -547,7 +619,7 @@
             </form>
         </div>	
     </div>
-    
+
 </div> <!-- /.row -->
 </div> <!-- /.container -->
 </div>
@@ -556,24 +628,24 @@
 
 <!-- Begin footer -->
 <footer class="text-off-white">
-    
+
     <div class="footer-top">
-       <div class="container">
-           <div class="row wow bounceInLeft" data-wow-delay="0.4s">
+     <div class="container">
+         <div class="row wow bounceInLeft" data-wow-delay="0.4s">
 
             <div class="col-sm-6 col-md-4">
-               <h4>Useful Links</h4>
-               <ul class="imp-links">
-                   <li><a href="">About</a></li>
-                   <li><a href="">Services</a></li>
-                   <li><a href="">Press</a></li>
-                   <li><a href="">Copyright</a></li>
-                   <li><a href="">Advertise</a></li>
-                   <li><a href="">Legal</a></li>
-               </ul>
-           </div>
-           
-           <div class="col-sm-6 col-md-4">
+             <h4>Useful Links</h4>
+             <ul class="imp-links">
+                 <li><a href="">About</a></li>
+                 <li><a href="">Services</a></li>
+                 <li><a href="">Press</a></li>
+                 <li><a href="">Copyright</a></li>
+                 <li><a href="">Advertise</a></li>
+                 <li><a href="">Legal</a></li>
+             </ul>
+         </div>
+
+         <div class="col-sm-6 col-md-4">
             <h4>Subscribe</h4>
             <div id="footer_signup">
                 <div id="email">
@@ -598,7 +670,7 @@
                 <div class="tweet-date">1 Hour ago</div>
             </div>
         </div>
-        
+
     </div> <!-- /.row -->
 </div> <!-- /.container -->
 </div>
@@ -616,26 +688,4 @@
 
 </div><!-- body ends -->
 
-
-
-
-<!-- Plugins JS -->
-<script src="{{URL::asset('assetsYelo/inc/jquery/jquery-1.11.1.min.js')}}"></script>
-<script src="{{URL::asset('assetsYelo/inc/bootstrap/js/bootstrap.min.js')}}"></script>
-<script src="{{URL::asset('assetsYelo/inc/owl-carousel/js/owl.carousel.min.js')}}"></script>
-<script src="{{URL::asset('assetsYelo/inc/stellar/js/jquery.stellar.min.js')}}"></script>
-<script src="{{URL::asset('assetsYelo/inc/animations/js/wow.min.js')}}"></script>
-<script src="{{URL::asset('assetsYelo/inc/waypoints.min.js')}}"></script>
-<script src="{{URL::asset('assetsYelo/inc/isotope.pkgd.min.js')}}"></script>
-<script src="{{URL::asset('assetsYelo/inc/classie.js')}}"></script>
-<script src="{{URL::asset('assetsYelo/inc/jquery.easing.min.js')}}"></script>
-<script src="{{URL::asset('assetsYelo/inc/jquery.counterup.min.js')}}"></script>
-<script src="{{URL::asset('assetsYelo/inc/smoothscroll.js')}}"></script>
-
-<!-- Theme JS -->
-<script src="js/theme.js"></script>
-
-</body> 
-
-
-</html>
+@endsection
