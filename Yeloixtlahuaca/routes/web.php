@@ -18,10 +18,10 @@
 Route::group(['middleware'=>'auth'], function() {
 
 
-	Route::get('/', 'HomeController@index')->name('/');
+	Route::get('/admin', 'HomeController@index')->name('/admin');
 
 	Route::get('/home', function() {
-		return redirect()->route('/');
+		return redirect()->route('/admin');
 	});
 
 	Route::resource('actividades', 'ActividadController');
@@ -39,9 +39,13 @@ Route::group(['middleware'=>'auth'], function() {
 
 	Route::get('logout', function(){
 			Auth::logout();
-			return redirect()->route('/');
+			return redirect()->route('/admin');
 	})->name('logout');
 
 });
 
 Auth::routes();
+
+Route::get('/', function() {
+	return view('yeloixtlahuaca.index');
+});
