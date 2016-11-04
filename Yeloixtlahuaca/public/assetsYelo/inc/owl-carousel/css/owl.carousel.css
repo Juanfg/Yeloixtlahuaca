@@ -26,6 +26,7 @@
 }
 .owl-carousel .owl-wrapper-outer{
 	overflow: hidden;
+	text-align: center;
 	position: relative;
 	width: 100%;
 }

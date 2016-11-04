@@ -3,9 +3,17 @@
 @section('img')
 <!-- Begin text carousel intro section -->
 <section id="text-carousel-intro-section" class="parallax" data-stellar-background-ratio="0.5" style="background-image: url({{Storage::url($img)}});">
+    <div class="container">
+        <div class="caption" data-stellar-ratio="0.7">
+            <div id="owl-intro-text" class="owl-carousel">
+                @foreach($avisos as $aviso)
+                <img src="{{Storage::url($aviso->foto)}}" width="400" height="400" alt="img">
+                @endforeach
+            </div>
+        </div>
+    </div>
 </section>
 <!-- End text carousel intro section -->
-
 @endsection
 
 @section('about')
@@ -71,12 +79,10 @@
         </div> <!-- /.container -->
     </div>
     <!-- End rotate box-1 -->
-
     <div class="extra-space-l"></div>
-
 </section>
-@endsection
 <!-- End about section -->
+@endsection
 
 @section('mvo')
 <!-- Begin Services -->
@@ -135,15 +141,15 @@
 <!-- End Services --> 
 @endsection
 
-@section('other')
+@section('secciones')
 <!-- Begin Portfolio -->
 <section id="portfolio-section" class="page bg-style1">
- <div class="container">
+   <div class="container">
     <div class="row">
         <div class="col-md-12">
             <div class="portfolio">
-             Begin page header
-             <div class="page-header-wrapper">
+               <!-- Begin page header -->
+               <div class="page-header-wrapper">
                 <div class="container">
                     <div class="page-header text-center wow fadeInDown" data-wow-delay="0.4s">
                         <h2>Nuestro Trabajo</h2>
@@ -156,97 +162,25 @@
             <div class="portfoloi_content_area" >
                 <div class="portfolio_menu" id="filters">
                     <ul>
-                        <li class="active_prot_menu"><a href="#porfolio_menu" data-filter="*">all</a></li>
-                        <li><a href="#porfolio_menu" data-filter=".websites">Salud</a></li>
-                        <li><a href="#porfolio_menu" data-filter=".webDesign" >Educación</a></li>
-                        <li><a href="#porfolio_menu" data-filter=".appsDevelopment">Protección</a></li>
-                        <li><a href="#porfolio_menu" data-filter=".GraphicDesign">Medio Ambiente</a></li>
-                        <li><a href="#porfolio_menu" data-filter=".responsive">Relación Padrino</a></li>
+                        <li class="active_prot_menu"><a href="#porfolio_menu" data-filter="*">Todas</a></li>
+                        @foreach($secciones as $seccion)
+                        <li><a href="#porfolio_menu" data-filter=".{{$seccion->titulo}}">{{$seccion->titulo}}</a></li>
+                        @endforeach
                     </ul>
                 </div>
                 <div class="portfolio_content">
                     <div class="row"  id="portfolio">
-                        <div class="col-xs-12 col-sm-4 appsDevelopment">
+                        @foreach($imagenes as $path)
+                        <div class="col-xs-12 col-sm-4 {{App\seccion::find(App\Actividad::find($path->actividad)->seccion)->titulo}}">
                             <div class="portfolio_single_content">
-                                <img src="img/portfolio/p1.jpg" alt="title"/>
+                                <img src="{{Storage::url($path->ruta)}}" width="400" height="400" alt="title"/>
                                 <div>
-                                    <a href="#">Skull Awesome</a>
-                                    <span>Subtitle</span>
+                                    <a href="#">{{App\Actividad::find($path->actividad)->titulo}}</a>
+                                    <span>{{App\Actividad::find($path->actividad)->descripcion}}</span>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-xs-12 col-sm-4 GraphicDesign">
-                            <div class="portfolio_single_content">
-                                <img src="img/portfolio/p2.jpg" alt="title"/>
-                                <div>
-                                    <a href="#">Photo Frame</a>
-                                    <span>Subtitle</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xs-12 col-sm-4 responsive">
-                            <div class="portfolio_single_content">
-                                <img src="img/portfolio/p3.jpg" alt="title"/>
-                                <div>
-                                    <a href="#">Hand Shots</a>
-                                    <span>Subtitle</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xs-12 col-sm-4 webDesign websites">
-                            <div class="portfolio_single_content">
-                                <img src="img/portfolio/p4.jpg" alt="title"/>
-                                <div>
-                                    <a href="#">Night Abstract</a>
-                                    <span>Subtitle</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xs-12 col-sm-4 appsDevelopment websites">
-                            <div class="portfolio_single_content">
-                                <img src="img//portfolio/p5.jpg" alt="title"/>
-                                <div>
-                                    <a href="#">Joy of Independence</a>
-                                    <span>Subtitle</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xs-12 col-sm-4 GraphicDesign">
-                            <div class="portfolio_single_content">
-                                <img src="img/portfolio/p6.jpg" alt="title"/>
-                                <div>
-                                    <a href="#">Night Crawlers</a>
-                                    <span>Subtitle</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xs-12 col-sm-4 responsive">
-                            <div class="portfolio_single_content">
-                                <img src="img/portfolio/p7.jpg" alt="title"/>
-                                <div>
-                                    <a href="#">Last Motel</a>
-                                    <span>Subtitle</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xs-12 col-sm-4 GraphicDesign">
-                            <div class="portfolio_single_content">
-                                <img src="img/portfolio/p8.jpg" alt="title"/>
-                                <div>
-                                    <a href="#">Dirk Road</a>
-                                    <span>Subtitle</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xs-12 col-sm-4 websites">
-                            <div class="portfolio_single_content">
-                                <img src="img/portfolio/p9.jpg" alt="title"/>
-                                <div>
-                                    <a href="#">Old is Gold</a>
-                                    <span>Subtitle</span>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
             </div>
@@ -257,16 +191,18 @@
 </div>
 </section>
 <!-- End portfolio -->
+@endsection
 
+@section('team')
 <!-- Begin team-->
 <section id="team-section" class="page">
     <!-- Begin page header-->
     <div class="page-header-wrapper">
         <div class="container">
             <div class="page-header text-center wow fadeInDown" data-wow-delay="0.4s">
-                <h2>Our Team</h2>
+                <h2>Integrantes</h2>
                 <div class="devider"></div>
-                <p class="subtitle">Meat our experts</p>
+                <p class="subtitle">Conocelos</p>
             </div>
         </div>
     </div>
@@ -274,112 +210,23 @@
     <div class="container">
         <div class="row">
             <div class="team-items">
+                @foreach($integrantes as $integrante)
                 <div class="col-md-2">
                     <div class="team-container wow bounceIn" data-wow-delay="0.2s">
                         <div class="team-item">
                             <div class="team-triangle">
                                 <div class="content">
-                                    <img src="img/team/1.jpg" alt="title"/>
+                                    <img align=center src="{{Storage::url($integrante->foto)}}" width="200" height="200" alt="title"/>
                                     <div class="team-hover text-center">
                                         <i class="fa fa-male"></i>
-                                        <p>John Doe</p>
+                                        <p>{{ $integrante->nombre }}</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-2">
-                    <div class="team-container wow bounceIn" data-wow-delay="0.3s">
-                        <div class="team-item">
-                            <div class="team-triangle">
-                                <div class="content">
-                                    <img src="img/team/1.jpg" alt="title"/>
-                                    <div class="team-hover text-center">
-                                        <i class="fa fa-female"></i>
-                                        <p>Jane Doe</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-2">
-                    <div class="team-container wow bounceIn" data-wow-delay="0.4s">
-                        <div class="team-item">
-                            <div class="team-triangle">
-                                <div class="content">
-                                    <img src="img/team/1.jpg" alt="title"/>
-                                    <div class="team-hover text-center">
-                                        <i class="fa fa-male"></i>
-                                        <p>John Doe</p>
-                                    </div>
-                                </div>  
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-2">
-                    <div class="team-container wow bounceIn" data-wow-delay="0.5s">
-                        <div class="team-item">
-                            <div class="team-triangle">
-                                <div class="content">
-                                    <img src="img/team/1.jpg" alt="title"/>
-                                    <div class="team-hover text-center">
-                                        <i class="fa fa-male"></i>
-                                        <p>John Doe</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-2">
-                    <div class="team-container wow bounceIn" data-wow-delay="0.6s">
-                        <div class="team-item">
-                            <div class="team-triangle">
-                                <div class="content">
-                                    <img src="img/team/1.jpg" alt="title"/>
-                                    <div class="team-hover text-center">
-                                        <i class="fa fa-male"></i>
-                                        <p>John Doe</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-2">
-                    <div class="team-container wow bounceIn" data-wow-delay="0.7s">
-                        <div class="team-item">
-                            <div class="team-triangle">
-                                <div class="content">
-                                    <img src="img/team/1.jpg" alt="title"/>
-                                    <div class="team-hover text-center">
-                                        <i class="fa fa-male"></i>
-                                        <p>John Doe</p>
-                                    </div>
-                                </div>  
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-2">
-                    <div class="team-container wow bounceIn" data-wow-delay="0.8s">
-                        <div class="team-item">
-                            <div class="team-triangle">
-                                <div class="content">
-                                    <img src="img/team/1.jpg" alt="title"/>
-                                    <div class="team-hover text-center">
-                                        <i class="fa fa-female"></i>
-                                        <p>Jane Doe</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
                 <div class="clearfix"></div>
             </div>  
         </div>
@@ -387,40 +234,34 @@
 
 </section>
 <!-- End team-->
+@endsection
 
-
-
-
+@section('donantes')
 <!-- Begin partners -->
 <section id="partners-section">
     <!-- Begin page header-->
     <div class="page-header-wrapper">
         <div class="container">
             <div class="page-header text-center wow fadeInDown" data-wow-delay="0.4s">
-                <h2>Our Partners</h2>
+                <h2>Donantes</h2>
                 <div class="devider"></div>
-                <p class="subtitle">Those who trust us</p>
+                <p class="subtitle">Les agradecemos a todos</p>
             </div>
         </div>
     </div>
     <!-- End page header-->
     <div class="container">
         <div id="owl-partners" class="owl-carousel">
-            <img src="img/partners/1.png" alt="img">
-            <img src="img/partners/2.png" alt="img">
-            <img src="img/partners/3.png" alt="img">
-            <img src="img/partners/4.png" alt="img">
-            <img src="img/partners/5.png" alt="img">
-            <img src="img/partners/6.png" alt="img">
-            <img src="img/partners/7.png" alt="img">
+            @foreach($donantes as $donante)
+            <img src="{{Storage::url($donante->logo)}}" width="200" height="200" alt="img">
+            @endforeach
         </div>
     </div>
 </section>
 <!-- End partners -->
+@endsection
 
-
-
-
+@section('prices')
 <!-- Begin prices section -->
 <section id="prices-section" class="page">
 
@@ -440,22 +281,89 @@
 
     <!-- Begin prices -->
     <div class="prices">
-     <div class="container">
-      <div class="row">
+       <div class="container">
+          <div class="row">
 
-       <div class="price-box col-sm-6 col-md-3 wow flipInY" data-wow-delay="0.3s">
+             <div class="price-box col-sm-6 col-md-3 wow flipInY" data-wow-delay="0.3s">
+                <div class="panel panel-default">
+                   <div class="panel-heading text-center">
+                      <i class="fa fa-plug fa-2x"></i>
+                      <h3>Basic</h3>
+                  </div>
+                  <div class="panel-body text-center">
+                      <p class="lead"><strong>$49</strong></p>
+                  </div>
+                  <ul class="list-group text-center">
+                      <li class="list-group-item">Personal Use</li>
+                      <li class="list-group-item">3 projects</li>
+                      <li class="list-group-item">1 GB Disk</li>
+                      <li class="list-group-item">Custom Domain</li>
+                      <li class="list-group-item">24/7 Support</li>
+                  </ul>
+                  <div class="panel-footer text-center">
+                      <a class="btn btn-default" href="#">Order Now!</a>
+                  </div>
+              </div>										
+          </div>
+
+          <div class="price-box col-sm-6 col-md-3 wow flipInY" data-wow-delay="0.5s">
+            <div class="panel panel-default">
+               <div class="panel-heading text-center">
+                  <i class="fa fa-cog fa-2x"></i>
+                  <h3>Advanced</h3>
+              </div>
+              <div class="panel-body text-center">
+                  <p class="lead"><strong>$99</strong></p>
+              </div>
+              <ul class="list-group text-center">
+                  <li class="list-group-item">Personal Use</li>
+                  <li class="list-group-item">5 projects</li>
+                  <li class="list-group-item">5 GB Disk</li>
+                  <li class="list-group-item">Custom Domain</li>
+                  <li class="list-group-item">24/7 Support</li>
+              </ul>
+              <div class="panel-footer text-center">
+                  <a class="btn btn-default" href="#">Order Now!</a>
+              </div>
+          </div>										
+      </div>
+
+      <div class="price-box col-sm-6 price-box-featured col-md-3 wow flipInY" data-wow-delay="0.7s">
         <div class="panel panel-default">
-         <div class="panel-heading text-center">
-          <i class="fa fa-plug fa-2x"></i>
-          <h3>Basic</h3>
+           <div class="panel-heading text-center">
+              <i class="fa fa-star fa-2x"></i>
+              <h3>Professional</h3>
+          </div>
+          <div class="panel-body text-center">
+              <p class="lead"><strong>$149</strong></p>
+          </div>
+          <ul class="list-group text-center">
+              <li class="list-group-item">Personal Use</li>
+              <li class="list-group-item">20 Projects</li>
+              <li class="list-group-item">20 GB Disk</li>
+              <li class="list-group-item">Custom Domain</li>
+              <li class="list-group-item">24/7 Support</li>
+          </ul>
+          <div class="panel-footer text-center">
+              <a class="btn btn-default" href="#">Order Now!</a>
+          </div>
+          <div class="price-box-ribbon"><strong>Popular</strong></div>
+      </div>										
+  </div>
+
+  <div class="price-box col-sm-6 col-md-3 wow flipInY" data-wow-delay="0.9s">
+    <div class="panel panel-default">
+       <div class="panel-heading text-center">
+          <i class="fa fa-plus fa-2x"></i>
+          <h3>Ultimate</h3>
       </div>
       <div class="panel-body text-center">
-          <p class="lead"><strong>$49</strong></p>
+          <p class="lead"><strong>$199</strong></p>
       </div>
       <ul class="list-group text-center">
-          <li class="list-group-item">Personal Use</li>
-          <li class="list-group-item">3 projects</li>
-          <li class="list-group-item">1 GB Disk</li>
+          <li class="list-group-item">Multi Use</li>
+          <li class="list-group-item">Unlimited Projects</li>
+          <li class="list-group-item">99 GB Disk</li>
           <li class="list-group-item">Custom Domain</li>
           <li class="list-group-item">24/7 Support</li>
       </ul>
@@ -465,73 +373,6 @@
   </div>										
 </div>
 
-<div class="price-box col-sm-6 col-md-3 wow flipInY" data-wow-delay="0.5s">
-    <div class="panel panel-default">
-     <div class="panel-heading text-center">
-      <i class="fa fa-cog fa-2x"></i>
-      <h3>Advanced</h3>
-  </div>
-  <div class="panel-body text-center">
-      <p class="lead"><strong>$99</strong></p>
-  </div>
-  <ul class="list-group text-center">
-      <li class="list-group-item">Personal Use</li>
-      <li class="list-group-item">5 projects</li>
-      <li class="list-group-item">5 GB Disk</li>
-      <li class="list-group-item">Custom Domain</li>
-      <li class="list-group-item">24/7 Support</li>
-  </ul>
-  <div class="panel-footer text-center">
-      <a class="btn btn-default" href="#">Order Now!</a>
-  </div>
-</div>										
-</div>
-
-<div class="price-box col-sm-6 price-box-featured col-md-3 wow flipInY" data-wow-delay="0.7s">
-    <div class="panel panel-default">
-     <div class="panel-heading text-center">
-      <i class="fa fa-star fa-2x"></i>
-      <h3>Professional</h3>
-  </div>
-  <div class="panel-body text-center">
-      <p class="lead"><strong>$149</strong></p>
-  </div>
-  <ul class="list-group text-center">
-      <li class="list-group-item">Personal Use</li>
-      <li class="list-group-item">20 Projects</li>
-      <li class="list-group-item">20 GB Disk</li>
-      <li class="list-group-item">Custom Domain</li>
-      <li class="list-group-item">24/7 Support</li>
-  </ul>
-  <div class="panel-footer text-center">
-      <a class="btn btn-default" href="#">Order Now!</a>
-  </div>
-  <div class="price-box-ribbon"><strong>Popular</strong></div>
-</div>										
-</div>
-
-<div class="price-box col-sm-6 col-md-3 wow flipInY" data-wow-delay="0.9s">
-    <div class="panel panel-default">
-     <div class="panel-heading text-center">
-      <i class="fa fa-plus fa-2x"></i>
-      <h3>Ultimate</h3>
-  </div>
-  <div class="panel-body text-center">
-      <p class="lead"><strong>$199</strong></p>
-  </div>
-  <ul class="list-group text-center">
-      <li class="list-group-item">Multi Use</li>
-      <li class="list-group-item">Unlimited Projects</li>
-      <li class="list-group-item">99 GB Disk</li>
-      <li class="list-group-item">Custom Domain</li>
-      <li class="list-group-item">24/7 Support</li>
-  </ul>
-  <div class="panel-footer text-center">
-      <a class="btn btn-default" href="#">Order Now!</a>
-  </div>
-</div>										
-</div>
-
 </div> <!-- /.row -->
 </div> <!-- /.container -->
 </div>
@@ -539,15 +380,14 @@
 <div class="extra-space-l"></div>
 </section>
 <!-- End prices section -->
+@endsection
 
-
-
-
+@section('social')
 <!-- Begin social section -->
 <section id="social-section">
 
- <!-- Begin page header-->
- <div class="page-header-wrapper">
+   <!-- Begin page header-->
+   <div class="page-header-wrapper">
     <div class="container">
         <div class="page-header text-center wow fadeInDown" data-wow-delay="0.4s">
             <h2>Unete a nosotros</h2>
@@ -556,19 +396,21 @@
         </div>
     </div>
 </div>
-<!-- End page header-->
 
+<!-- End page header-->
 <div class="container">
- <ul class="social-list">
-  <li> <a href="https://www.facebook.com/CAY0546" class="rotate-box-1 square-icon text-center wow zoomIn" data-wow-delay="0.3s"><span class="rotate-box-icon"><i class="fa fa-facebook"></i></span></a></li>
-  <li> <a href="#" class="rotate-box-1 square-icon text-center wow zoomIn" data-wow-delay="0.4s"><span class="rotate-box-icon"><i class="fa fa-twitter"></i></span></a></li>
-  <li> <a href="#" class="rotate-box-1 square-icon text-center wow zoomIn" data-wow-delay="0.5s"><span class="rotate-box-icon"><i class="fa fa-google-plus"></i></span></a></li>                  
-</ul>
+   <ul class="social-list">
+      <li> <a href="https://www.facebook.com/CAY0546" class="rotate-box-1 square-icon text-center wow zoomIn" data-wow-delay="0.3s"><span class="rotate-box-icon"><i class="fa fa-facebook"></i></span></a></li>
+      <li> <a href="#" class="rotate-box-1 square-icon text-center wow zoomIn" data-wow-delay="0.4s"><span class="rotate-box-icon"><i class="fa fa-twitter"></i></span></a></li>
+      <li> <a href="#" class="rotate-box-1 square-icon text-center wow zoomIn" data-wow-delay="0.5s"><span class="rotate-box-icon"><i class="fa fa-google-plus"></i></span></a></li>                  
+  </ul>
 </div>
 
 </section>
 <!-- End social section -->
+@endsection
 
+@section('other')
 <!-- Begin contact section -->
 <section id="contact-section" class="page text-white parallax" data-stellar-background-ratio="0.5" style="background-image: url(img/map-bg.jpg);">
     <div class="cover"></div>
@@ -587,22 +429,22 @@
 
     <div class="contact wow bounceInRight" data-wow-delay="0.4s">
         <div class="container">
-         <div class="row">
+           <div class="row">
 
             <div class="col-sm-6">
                 <div class="contact-info">
                     <h4>Visitanos</h4>
                     <ul class="contact-address">
-                       <li><i class="fa fa-map-marker fa-lg"></i>&nbsp; Calle Cuauhtemoc S/N Secc. 1a. ,<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; San Pedro Yeloixtlahuaca Puebla.<br><!--<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; New York, USA, 33148</li>-->
-                       <li><i class="fa fa-phone"></i>&nbsp; 01-275-43-8-41-32</li>
-                   </ul>
-               </div>
-           </div>
+                     <li><i class="fa fa-map-marker fa-lg"></i>&nbsp; Calle Cuauhtemoc S/N Secc. 1a. ,<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; San Pedro Yeloixtlahuaca Puebla.<br><!--<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; New York, USA, 33148</li>-->
+                     <li><i class="fa fa-phone"></i>&nbsp; 01-275-43-8-41-32</li>
+                 </ul>
+             </div>
+         </div>
 
-           <div class="col-sm-6">
+         <div class="col-sm-6">
             <div class="contact-form">
-             <h4>Escribenos</h4>
-             <form role="form">
+               <h4>Escribenos</h4>
+               <form role="form">
                 <div class="form-group">
                     <input type="text" class="form-control input-lg" placeholder="Tu Nombre" required>
                 </div>
@@ -630,22 +472,22 @@
 <footer class="text-off-white">
 
     <div class="footer-top">
-     <div class="container">
-         <div class="row wow bounceInLeft" data-wow-delay="0.4s">
+       <div class="container">
+           <div class="row wow bounceInLeft" data-wow-delay="0.4s">
 
             <div class="col-sm-6 col-md-4">
-             <h4>Useful Links</h4>
-             <ul class="imp-links">
-                 <li><a href="">About</a></li>
-                 <li><a href="">Services</a></li>
-                 <li><a href="">Press</a></li>
-                 <li><a href="">Copyright</a></li>
-                 <li><a href="">Advertise</a></li>
-                 <li><a href="">Legal</a></li>
-             </ul>
-         </div>
+               <h4>Useful Links</h4>
+               <ul class="imp-links">
+                   <li><a href="">About</a></li>
+                   <li><a href="">Services</a></li>
+                   <li><a href="">Press</a></li>
+                   <li><a href="">Copyright</a></li>
+                   <li><a href="">Advertise</a></li>
+                   <li><a href="">Legal</a></li>
+               </ul>
+           </div>
 
-         <div class="col-sm-6 col-md-4">
+           <div class="col-sm-6 col-md-4">
             <h4>Subscribe</h4>
             <div id="footer_signup">
                 <div id="email">
@@ -687,5 +529,4 @@
 <a href="#" class="scrolltotop"><i class="fa fa-arrow-up"></i></a> <!-- Scroll to top button -->
 
 </div><!-- body ends -->
-
 @endsection

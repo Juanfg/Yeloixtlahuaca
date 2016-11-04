@@ -58,9 +58,11 @@
 					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 						<ul class="nav navbar-nav navbar-right">
 							<li><a class="page-scroll" href="{{URL::asset('#header')}}">Inicio</a></li>
-							<li><a class="page-scroll" href="{{URL::asset('#about-section')}}">Acerca de</a></li>
 							<li><a class="page-scroll" href="{{URL::asset('#mission-section')}}">Mision, Vision y Objetivo</a></li>
-							<li><a class="page-scroll" href="{{URL::asset('#contact-section')}}">Contacto</a></li>
+							<li><a class="page-scroll" href="{{URL::asset('#portfolio-section')}}">Secciones</a></li>
+							<li><a class="page-scroll" href="{{URL::asset('#team-section')}}">Integrantes</a></li>
+							<li><a class="page-scroll" href="{{URL::asset('#partners-section')}}">Donantes</a></li>
+							<li><a class="page-scroll" href="{{URL::asset('#social-section')}}">Redes Sociales</a></li>
 						</ul>
 					</div><!-- /.navbar-collapse -->
 				</div><!-- /.container -->
@@ -70,8 +72,11 @@
 		</header>
 		<!-- ========= END HEADER =========-->
 		@yield('img')
-		@yield('about')
 		@yield('mvo')
+		@yield('secciones')
+		@yield('team')
+		@yield('donantes')
+		@yield('social')
 
 	</div>
 	<!-- Plugins JS -->

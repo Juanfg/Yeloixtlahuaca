@@ -7,6 +7,11 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 
 use App\FotoActividad;
+use App\Integrante;
+use App\Seccion;
+use App\Actividad;
+use App\Donante;
+use App\Aviso;
 
 class YeloController extends Controller
 {
@@ -17,7 +22,7 @@ class YeloController extends Controller
      */
     public function index()
     {
-        return view('yeloixtlahuaca.index', ['img'=>"/slider.jpg"]);
+        return view('yeloixtlahuaca.index', ['img'=>"/slider.jpg", 'imagenes'=>FotoActividad::all(), 'integrantes'=>Integrante::all(), 'secciones'=>Seccion::all(), 'donantes'=>Donante::all(), 'avisos'=>Aviso::all()]);
     }
 
     /**
