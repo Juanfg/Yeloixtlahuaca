@@ -22,7 +22,7 @@ class YeloController extends Controller
      */
     public function index()
     {
-        return view('yeloixtlahuaca.index', ['img'=>"/slider.jpg", 'imagenes'=>FotoActividad::all(), 'integrantes'=>Integrante::all(), 'secciones'=>Seccion::all(), 'donantes'=>Donante::all(), 'avisos'=>Aviso::all()]);
+        return view('yeloixtlahuaca.index', ['img'=>"/slider.png", 'imagenes'=>FotoActividad::all(), 'integrantes'=>Integrante::all(), 'secciones'=>Seccion::all(), 'donantes'=>Donante::all(), 'avisos'=>Aviso::all()]);
     }
 
     /**

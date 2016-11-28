@@ -72,10 +72,12 @@
 		</header>
 		<!-- ========= END HEADER =========-->
 		@yield('img')
+		@yield('radio')
 		@yield('mvo')
 		@yield('secciones')
 		@yield('team')
 		@yield('donantes')
+		@yield('paypal')
 		@yield('social')
 
 	</div>

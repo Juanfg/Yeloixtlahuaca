@@ -93,7 +93,7 @@ class ActividadController extends Controller
             $titulos[] = $titulo->titulo;
         }
         $actividad = Actividad::where('id', $id)->firstOrFail();
-        return view('actividades.editar', ['actividad' => $actividad], ['secciones' => $titulos]);
+        return view('actividades.editar', ['actividad' => $actividad, 'secciones' => $titulos]);
     }
 
     /**
