@@ -50,7 +50,15 @@ class ActividadController extends Controller
             "seccion" => "required|string",
             ]);
 
-        $seccion = $request->seccion + 1;
+        $secciones = Seccion::select('titulo')->get();
+        $titulos = [];
+        foreach ($secciones as $titulo) {
+            $titulos[] = $titulo->titulo;
+        }
+
+        $index = $request->seccion;
+
+        $seccion = Seccion::where('titulo', $titulos[$index])->first()->id;
 
         $alreadyExists = Actividad::where("titulo",$request->titulo)->count();
 
@@ -105,41 +113,47 @@ class ActividadController extends Controller
      */
     public function update(Request $request, $id)
     {
-        do{
-            $message = "";
-            $actividad = Actividad::where('id' , $id)->firstOrFail();
+        $message = "";
+        $actividad = Actividad::where('id' , $id)->firstOrFail();
 
-            $this->validate($request,[
-                "titulo" => "required|string",
-                "descripcion" => "required|string",
-                "seccion" => "required|string",
-                ]);
+        $this->validate($request,[
+            "titulo" => "required|string",
+            "descripcion" => "required|string",
+            "seccion" => "required|string",
+            ]);
 
-            $seccion = $request->seccion + 1;
-            
-            $alreadyExists = Actividad::where("titulo",$request->titulo)->count();
+        $secciones = Seccion::select('titulo')->get();
+        $titulos = [];
+        foreach ($secciones as $titulo) {
+            $titulos[] = $titulo->titulo;
+        }
 
-            if($alreadyExists < 1){
+        $index = $request->seccion;
+
+        $seccion = Seccion::where('titulo', $titulos[$index])->first()->id;
+
+        $alreadyExists = Actividad::where("titulo",$request->titulo)->count();
+
+        if($alreadyExists < 1){
                 //no existe
+            $actividad->titulo = $request->titulo;
+            $actividad->descripcion = $request->descripcion;
+            $actividad->seccion = $seccion;
+            $actividad->save();
+        }else{
+                //existe
+            if(Actividad::where('titulo', $request->titulo)->first()->id == $id){
                 $actividad->titulo = $request->titulo;
                 $actividad->descripcion = $request->descripcion;
                 $actividad->seccion = $seccion;
                 $actividad->save();
-            }else{
-                //existe
-                if(Actividad::where('titulo', $request->titulo)->first()->id == $id){
-                    $actividad->titulo = $request->titulo;
-                    $actividad->descripcion = $request->descripcion;
-                    $actividad->seccion = $seccion;
-                    $actividad->save();
-                }
-                else{   
-                    $request->session()->flash('error', "Ya existe esta actividad.");
-                    return back()->withInput();
-                }
             }
+            else{   
+                $request->session()->flash('error', "Ya existe esta actividad.");
+                return back()->withInput();
+            }
+        }
 
-        }while(false);
 
         $request->session()->flash("message", "Actualizado con exito");
         return redirect()->route("actividades.index");    
